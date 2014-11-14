@@ -1,3 +1,5 @@
+import random
+
 def merge_sort(array):
     ret = list()
     pivot = len(array)/2
@@ -28,8 +30,6 @@ def merge_sort(array):
     return ret
 
 
-
-
-
-
-print merge_sort([3, 6, 1, 8, 2, 5, 4, 7])
+randomized_list = [random.randint(0, 1000) for x in range(0, 50)]
+print(randomized_list)
+print merge_sort(randomized_list)
