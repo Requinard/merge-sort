@@ -2,27 +2,27 @@ def merge_sort(array):
     ret = list()
     pivot = len(array)/2
     i, j = 0, 0
-    array_split_1 = array[:pivot]
-    array_split_2 = array[pivot:]
+    a1 = array[:pivot]
+    a2 = array[pivot:]
 
-    if len(array_split_1) != 1:
-        array_split_1 = merge_sort(array_split_1)
+    if len(a1) != 1:
+        a1 = merge_sort(a1)
 
-    if len(array_split_2) != 1:
-        array_split_2 = merge_sort(array_split_2)
+    if len(a2) != 1:
+        a2 = merge_sort(a2)
 
     for c in range(0, len(array)):
-        if i == len(array_split_1):
-            ret.append(array_split_2[j])
+        if i == len(a1):
+            ret.append(a2[j])
             j += 1
-        elif j == len(array_split_2):
-            ret.append(array_split_1[i])
+        elif j == len(a2):
+            ret.append(a1[i])
             i += 1
-        elif array_split_1[i] < array_split_2[j]:
-            ret.append(array_split_1[i])
+        elif a1[i] < a2[j]:
+            ret.append(a1[i])
             i += 1
         else:
-            ret.append(array_split_2[j])
+            ret.append(a2[j])
             j += 1
 
     return ret
