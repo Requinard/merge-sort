@@ -3,7 +3,7 @@ Try to find the square root of a number through approximation
 
 Estimated operational time: O((number * 10)*precision)
 """
-def sqrt(number, power=2,  precision=13):
+def brute_sqrt(number, power=2,  precision=13):
     var = 1.0
     mod = 1.0
 
@@ -29,8 +29,21 @@ def sqrt(number, power=2,  precision=13):
 
     return var
 
-print sqrt(9)
-print sqrt(10)
-print sqrt(520, 3)
-print sqrt(13.928)
-print sqrt(13.928, 2, 20)
+
+def newton_sqrt(num, power=2,  initial_guess= 10.0, depth=10):
+    if depth is 1:
+        return initial_guess
+    else:
+        new_guess = initial_guess-((initial_guess**power-num)/(power*initial_guess))
+
+        if initial_guess is new_guess:
+            return initial_guess
+
+        return newton_sqrt(num, power, new_guess, depth - 1)
+
+
+print brute_sqrt(520, 3)
+print brute_sqrt(13.928)
+
+print newton_sqrt(612)
+print newton_sqrt(13.928)
